@@ -15,11 +15,12 @@ This is a total rewrite of the site and infrastructure, very much a work-in-prog
 - [ ] PWA?
 - [ ] Updates Page
 - [ ] Volume Control
-- [ ] CI
+- [x] CI
+- [ ] Add a bunch more songs
 
 ### Infra
 
-- A minimal Hetzner server with some music and artwork stored on it.
+- A minimal Hetzner server running NixOS with some music and artwork stored on it.
 - [mpd](https://www.musicpd.org/) playing on an infinite shuffling loop sending to ->
 - [icecast](https://icecast.org/) multicast media streaming server
 - [Custom python API](api/) for showing elapsed time, info about the game the song is from, etc.
