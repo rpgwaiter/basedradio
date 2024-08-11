@@ -1,0 +1,14 @@
+[project]
+name = "radio-api"
+version = "0.0.1"
+description = "API for BasedRadio"
+requires-python = ">=3.6"
+
+dependencies = [
+  "python-mpd2",
+  "pillow",
+  "flask"
+]
+
+[project.gui-scripts]
+radio-webhook = "api:main"

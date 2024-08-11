@@ -1,0 +1,454 @@
+/* I yanked this from github at one point, wish i recorded where i got it from... */
+
+#window-about .window {
+    width: 497px;
+}
+
+#window-about .win98 {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.win98 .window.window-about {
+    margin: 0 auto;
+}
+
+.win98 .window.window-about .lead {
+    font-size: 14px;
+    line-height: 14px;
+    margin: 16px 0 6px;
+    font-weight: 700;
+}
+
+.win98 .window.window-about p {
+    font-size: 12px;
+    line-height: 150%;
+}
+
+.win98 .window.window-about a {
+    color: #0645ad;
+    text-decoration: underline;
+}
+
+.win98 .window.window-settings {
+    width: 220px !important;
+}
+
+.win98 {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    font-size: 11px;
+    font-family: Tahoma, Verdana, Segoe, ヒラギノ角ゴ ProN W3, Hiragino Kaku Gothic ProN, メイリオ, Meiryo, sans-serif;
+    color: #070707;
+}
+
+.win98 .window {
+    background: #bfbfbf;
+    border: 1px solid;
+    border-top-color: #dfdfdf;
+    border-left-color: #dfdfdf;
+    border-right-color: gray;
+    border-bottom-color: gray;
+    box-shadow: 1px 1px 0 0 #000;
+    width: 497px;
+    cursor: default;
+    margin: 0 auto;
+}
+
+.win98 .window .content {
+    padding: 3px;
+    margin: 1px 1px 0;
+    border: 1px solid;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+}
+
+.win98 .window .content .subtitle {
+    font-weight: 700;
+    line-height: 100%;
+    padding: 0;
+    text-align: center;
+    margin: 3px 0 9px;
+    font-size: 13px;
+}
+
+.win98 .window>.inner {
+    border: 1px solid #fff;
+    border-right: 0 gray;
+    border-bottom: 0 gray;
+    position: relative;
+}
+
+.win98 .window .header {
+    margin: 2px 2px 0;
+    padding: 2px;
+    position: relative;
+    background: linear-gradient(90deg, navy, #1084d0);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #fff;
+}
+
+.win98 .window .header .icon {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 2px;
+    background-size: cover;
+}
+
+.win98 .window .header .buttons {
+    position: absolute;
+    right: 4px;
+    top: 2px;
+    height: 16px;
+    line-height: 0;
+}
+
+.win98 .window .header .buttons button {
+    margin: 0;
+    padding: 4px;
+    height: 15px;
+    width: 15px;
+    line-height: 0;
+    background-color: silver;
+    background-size: 9px;
+    background-repeat: no-repeat;
+    background-position-x: 2px;
+    background-position-y: 2px;
+}
+
+.win98 .window .header .buttons .button-maximize {
+    background-image: url("assets/ui/element1.png");
+}
+
+.win98 .window .header .buttons .button-minimize {
+    background-image: url("assets/ui/element2.png");
+}
+
+.win98 .window .menu-bar {
+    margin: 0 2px;
+    line-height: 1;
+    color: #000;
+    font-size: 0;
+}
+
+.win98 .window .menu-bar .action {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+}
+
+.win98 .window .menu-bar .action a {
+    display: block;
+    padding: 5px 6px;
+    color: #000;
+    text-decoration: none;
+}
+
+.win98 .window .menu-bar .action a:hover {
+    color: #fff;
+}
+
+.win98 .window .menu-bar .action:hover {
+    background: #000084;
+    color: #fff;
+}
+
+.win98 .window .status-bar {
+    height: 20px;
+    padding: 0 6px;
+    font-size: 11px;
+    line-height: 20px;
+    border: 1px solid gray;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+    margin: 1px;
+    position: relative;
+}
+
+.win98 .window .status-bar .status-bar-icon {
+    background-image: url("assets/ui/element3.png");
+    background-size: 12px;
+    width: 12px;
+    height: 16px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.win98 .menu {
+    background: #bfbfbf;
+    border: 1px solid;
+    border-top-color: #dfdfdf;
+    border-left-color: #dfdfdf;
+    border-right-color: gray;
+    border-bottom-color: gray;
+    box-shadow: 1px 1px 0 0 #000;
+    zoom: 1;
+    width: 195px;
+    font-size: 13px;
+    padding: 1px;
+    position: relative;
+    cursor: default;
+}
+
+.win98 .menu:after,
+.win98 .menu:before {
+    content: "";
+    display: table;
+}
+
+.win98 .menu:after {
+    clear: both;
+}
+
+.win98 .menu>.menu-content {
+    float: right;
+}
+
+.win98 .menu .menu-sidebar {
+    background: linear-gradient(180deg, navy, #1084d0);
+    position: absolute;
+    width: 25px;
+    height: 100%;
+}
+
+.win98 .menu .menu-sidebar .headline {
+    transform: rotate(270deg);
+    position: absolute;
+    bottom: 40px;
+    left: -32px;
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.win98 .menu .menu-content {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    color: #000;
+    list-style: none;
+    margin: 2px 0;
+    width: 170px;
+}
+
+.win98 .menu .menu-content .divider {
+    margin: 7px 6px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.win98 .menu .menu-content .item {
+    padding: 10px;
+}
+
+.win98 .menu .menu-content .item em {
+    font-style: normal;
+    text-decoration: underline;
+}
+
+.win98 .menu .menu-content .item:hover {
+    color: #fff;
+    background: navy;
+}
+
+.win98 .menu .menu-content .item.folder {
+    position: relative;
+}
+
+.win98 .menu .menu-content .item.folder:after {
+    content: "\25B6";
+    float: right;
+    font-size: 10px;
+}
+
+.win98 .menu .menu-content .item .icon {
+    float: left;
+    margin-right: 7px;
+    margin-top: -4px;
+}
+
+.win98 .menu .menu-content .item:focus .menu-content,
+.win98 .menu .menu-content .item:hover .menu-content {
+    display: block;
+}
+
+.win98 .menu .menu-content .menu-content {
+    background: #bfbfbf;
+    border: 1px solid;
+    border-top-color: #dfdfdf;
+    border-left-color: #dfdfdf;
+    border-right-color: gray;
+    border-bottom-color: gray;
+    box-shadow: 1px 1px 0 0 #000;
+    display: none;
+    position: absolute;
+    left: 165px;
+    top: -4px;
+}
+
+.win98 .menu .menu-content .menu-content .item {
+    padding: 3px 10px;
+}
+
+.win98 .menu .menu-content .menu-content .icon {
+    width: 18px;
+    height: 18px;
+    margin-top: -2px;
+}
+
+.win98 button {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    font-size: 11px;
+    font-family: Tahoma, Verdana, Segoe, ヒラギノ角ゴ ProN W3, Hiragino Kaku Gothic ProN, メイリオ, Meiryo, sans-serif;
+    color: #070707;
+    background: #bfbfbf;
+    border: 1px solid;
+    border-top-color: #dfdfdf;
+    border-left-color: #dfdfdf;
+    border-right-color: gray;
+    border-bottom-color: gray;
+    box-shadow: 1px 1px 0 0 #000;
+    margin: 3px;
+    text-align: center;
+    outline: none;
+    padding: 4px;
+    cursor: default;
+}
+
+.win98 button:enabled {
+    color: #070707;
+}
+
+.win98 button:disabled {
+    color: #818181;
+    text-shadow: 1px 1px #fff;
+}
+
+.win98 button:active:enabled {
+    box-shadow: inset 1px 1px 0 0 #000;
+    border-top-color: gray;
+    border-left-color: gray;
+    border-right-color: #dfdfdf;
+    border-bottom-color: #dfdfdf;
+}
+
+.win98 input {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    font-size: 11px;
+    font-family: Tahoma, Verdana, Segoe, ヒラギノ角ゴ ProN W3, Hiragino Kaku Gothic ProN, メイリオ, Meiryo, sans-serif;
+    color: #070707;
+    margin: 3px;
+    padding: 3px;
+    box-shadow: -1px -1px 0 0 gray, 1px 1px 0 0 #fff;
+    border: 1px solid;
+    border-top-color: #000;
+    border-left-color: #000;
+    border-right-color: #dfdfdf;
+    border-bottom-color: #dfdfdf;
+}
+
+.win98 .text-field {
+    border: 1px solid gray;
+    border-right-color: #dfdfdf;
+    border-bottom-color: #dfdfdf;
+    padding: 6px;
+    margin: 3px;
+    font-size: 11px;
+    line-height: 22px;
+    cursor: text;
+    min-height: 14px;
+}
+
+.win98 label {
+    display: inline-block;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.win98 .memo {
+    border: 1px solid gray;
+    border-right-color: #dfdfdf;
+    border-bottom-color: #dfdfdf;
+    background: #fff;
+    padding: 6px;
+    margin: 3px;
+    font-size: 11px;
+    line-height: 150%;
+    cursor: text;
+}
+
+.win98 .checkbox input {
+    vertical-align: top;
+    margin: 0 3px 0 0;
+    width: 13px;
+    height: 13px;
+}
+
+.win98 .checkbox input+label {
+    cursor: pointer;
+}
+
+.win98 .checkbox input:not(checked) {
+    position: absolute;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+}
+
+.win98 .checkbox input:not(checked)+label {
+    position: relative;
+    padding: 0 0 0 17px;
+}
+
+.win98 .checkbox input:not(checked)+label:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 13px;
+    height: 13px;
+    background: url("assets/ui/element4.png");
+    background-size: 13px;
+}
+
+.win98 .checkbox input:checked+label:before {
+    background: url("assets/ui/element5.png");
+    background-size: 13px;
+}
+
+.win98 .checkbox input:focus+label:before {
+    box-shadow: none;
+    outline: 0;
+}
+
+.win98 .checkbox label {
+    display: inline;
+    line-height: 100%;
+}
+
+.win98 .window {
+    z-index: 3;
+}
+
+.win98 .window .header .icon {
+    background: url("assets/icons/favicon-32x32.png") no-repeat;
+    background-size: cover;
+}
+
+.win98 button,
+.win98 button i,
+.win98 button span {
+    cursor: pointer;
+}
+
+.win98 .window .status-bar {
+    line-height: 18px;
+}

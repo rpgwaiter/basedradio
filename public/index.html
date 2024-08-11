@@ -1,0 +1,45 @@
+<html>
+
+<head>
+  <script type="module" src="./radio.js"></script>
+  <link rel="stylesheet" href="./app.css">
+  <link rel="stylesheet" href="./based98.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <title>Infinite VGM Playlist | BasedRadio</title>
+</head>
+
+<body>
+  <vgm-player>
+    <window-player class="win98">
+      <player-form id="based-radio" class="window">
+        <div class="inner">
+          <div class="header" id="header">
+            <div class="icon"></div>BasedRadio<div class="buttons">
+              <script>
+                function min() {
+                  const b = document.getElementById('player-container')
+                  b.style.display = b.style.display === 'none' ? 'block' : 'none'
+                }
+              </script>
+              <button class="button-minimize" onclick="min()"></button>
+            </div>
+          </div>
+          <div class="menu-bar" id="actions">
+            <div class="action"><a id="home-btn" role="button" tabindex="0" href="/"><u>H</u>ome</a></div>
+            <div class="action"><a id="about-show" role="button" tabindex="1"><u>A</u>bout</a></div>
+            <div class="action" style="float: right;"><a role="button" id="updates-show" tabindex="3"><u>U</u>pdates</a>
+            </div>
+          </div>
+          <div id="player-container" class="minimizable"></div>
+        </div>
+        <player-footer>
+          <div class="cell">Listeners: <span id="listeners">0</span></div>
+          <div class="footer-end"></div>
+        </player-footer>
+      </player-form>
+    </window-player>
+  </vgm-player>
+
+</body>
+
+</html>
