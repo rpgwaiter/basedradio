@@ -10,7 +10,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-        run: bun install --frozen-lockfile
+      - run: bun install --frozen-lockfile
       - uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
