@@ -10,6 +10,7 @@ const { useState, useRef, useEffect } = hooks
 const html = htm.default.bind(h)
 
 const streamUrl = 'https://cast.based.radio/vgm.ogg'
+const streamUrlMp3 = 'https://cast.based.radio/vgm.mp3'
 const icecastInfoUrl = 'https://cast.based.radio/status-json.xsl'
 const infoUrl = 'https://api.based.radio'
 // const songInfoUrl = `${infoUrl}/song`
@@ -21,9 +22,11 @@ const img = {
   statusbar: 'assets/statusbar.png'
 }
 
-const audio = new Audio(streamUrl)
+const audio = new Audio()
 audio.crossOrigin = 'anonymous'
-audio.type = 'audio/ogg; codecs="opus"'
+const canPlayOgg = audio.canPlayType('audio/ogg; codecs="vorbis"')
+audio.type = canPlayOgg === '' ? 'audio/mpeg' : 'audio/ogg; codecs="opus"'
+audio.src = canPlayOgg === '' ? streamUrlMp3 : streamUrl
 audio.preload = 'auto'
 audio.bufferSize = 3
 
