@@ -117,9 +117,8 @@ window-player {
 
 .player-content {
   margin: 1px 1px 0;
-  border: 1px solid;
+  /* border: 1px solid; */
   padding: 8px !important;
-
 }
 
 .no-gutters {

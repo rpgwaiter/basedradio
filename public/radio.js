@@ -61,8 +61,7 @@ function PlayerInfo ({ currentSong, setCurrentSong, currentStatus, setCurrentSta
     fetch(icecastInfoUrl) // update listeners
       .then(r => r.json())
       .then(r => {
-        const s = r.icestats.source
-        listenersEl.innerText = s.listeners || s.reduce((a,c) => a += c.listeners, 0) || 0
+        listenersEl.innerText = r.icestats.source.listeners || r.icestats.source.reduce((a,c) => a += c.listeners, 0) || 0
       })
   ])
 
@@ -211,9 +210,9 @@ function AboutPage () {
 
   return html`
   <div class="win98">
-    <div class="window">
+    <div class="window window-about">
       <div class="header">About</div>
-      <div id="about-radio" class="inner" >
+      <div id="about-radio" class="inner content" >
         <p>BasedRadio is an internet radio station playing classic and obscure music from the pre-32bit era. Heavily inspired by <a href="https://plaza.one">plaza.one</a>, all of the code for this site is custom.
         If you're interested: <a href="https://github.com/rpgwaiter/basedradio">source code</a>.
         </p>
@@ -228,12 +227,11 @@ function AboutPage () {
         <br></br>
         <p>-- Imagine your favorite wall of legal disclaimers, license agreements and copyright notices here. --</p>
         <br></br>
-        <p>I don't have the rights to any of this music, didn't even ask. If you're a rightsholder and really care, email me: <a href=”mailto:dmca@based.radio”>dmca@based.radio</a>. I'll probably get around to reading it eventually.</p>
+        <p>I don't have the rights to any of this music. If you're a rightsholder and really care, email me: <a href=”mailto:dmca@based.radio”>dmca@based.radio</a>. I'll probably get around to reading it eventually.</p>
       </div>
       <player-footer>
       </player-footer>
     </div>
-    
   </div>
     `
 }
