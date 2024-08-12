@@ -209,47 +209,53 @@ setCurrentStatus
 function AboutPage () {
 
   return html`
-  <div class="win98">
-    <div class="window window-about">
-      <div class="header">About</div>
-      <div id="about-radio" class="inner content" >
-        <p>BasedRadio is an internet radio station playing classic and obscure music from the pre-32bit era. Heavily inspired by <a href="https://plaza.one">plaza.one</a>, all of the code for this site is custom.
-        If you're interested: <a href="https://github.com/rpgwaiter/basedradio">source code</a>.
-        </p>
-        <br></br>
-        <p><strong>Technology used:</strong></p>
-        <p><ul>
-          <li>mpd</li>
-          <li>Icecast</li>
-          <li>Preact</li>
-          <li>htm</li>
-        </ul></p>
-        <br></br>
-        <p>-- Imagine your favorite wall of legal disclaimers, license agreements and copyright notices here. --</p>
-        <br></br>
-        <p>I don't have the rights to any of this music. If you're a rightsholder and really care, email me: <a href=”mailto:dmca@based.radio”>dmca@based.radio</a>. I'll probably get around to reading it eventually.</p>
+  <div id="window-about">
+    <div class="win98">
+      <div class="window window-about">
+        <div class="header">About
+          <div class="buttons">
+            <button onClick="${showAbout}" class="button-close"> </div>
+          </div>
+        </div>
+        <div id="about-radio" class="inner content" >
+          <p>BasedRadio is an internet radio station playing classic and obscure music from the pre-32bit era. Heavily inspired by <a href="https://plaza.one">plaza.one</a>, all of the code for this site is custom.
+          If you're interested: <a href="https://github.com/rpgwaiter/basedradio">source code</a>.
+          </p>
+          <br></br>
+          <p class="lead">Technology used:</p>
+          <p><ul>
+            <li>mpd</li>
+            <li>Icecast</li>
+            <li>Preact</li>
+            <li>htm</li>
+          </ul></p>
+          <br></br>
+          <p>-- Imagine your favorite wall of legal disclaimers, license agreements and copyright notices here. --</p>
+          <br></br>
+          <p>I don't have the rights to any of this music. If you're a rightsholder and really care, email me: <a href=”mailto:dmca@based.radio”>dmca@based.radio</a>. I'll probably get around to reading it eventually.</p>
+        </div>
+        <player-footer>
+        </player-footer>
       </div>
-      <player-footer>
-      </player-footer>
     </div>
   </div>
     `
 }
 
-function MenuBar () {
-  const [aboutExists, setAboutExists] = useState(false)
-
-  const showAbout = () => {
-    console.log('shown about')
-    if (aboutExists) {
-      setAboutExists(false)
-      render(null, document.getElementById('about-page'))
-    } else {
-      setAboutExists(true)
-      render(html`<${AboutPage} />`, document.getElementById('about-page'))
-    }
+const showAbout = () => {
+  const about = document.getElementById('about-page')
+  if (showAbout.exists) {
+    showAbout.exists = false
+    render(null, about)
+  } else {
+    showAbout.exists = true
+    render(html`<${AboutPage} />`, about)
     makeAllDraggable()
   }
+}
+
+function MenuBar () {
+
   return html`
     <div class="action"><a id="home-btn" role="button" tabindex="0" href="/"><u>H</u>ome</a></div>
     <div class="action"><a id="about-show" onClick=${showAbout} role="button" tabindex="1"><u>A</u>bout</a></div>

@@ -112,6 +112,7 @@
     height: 15px;
     width: 15px;
     line-height: 0;
+    display: block;
     background-color: silver;
     background-size: 9px;
     background-repeat: no-repeat;
@@ -125,6 +126,10 @@
 
 .win98 .window .header .buttons .button-minimize {
     background-image: url("assets/ui/element2.png");
+}
+
+.win98 .window .header .buttons .button-close {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA5IDknIHdpZHRoPSc5JyBoZWlnaHQ9JzknPjxsaW5lIHN0eWxlPSdzdHJva2U6IHJnYigwLCAwLCAwKTsnIHgxPScxJyB5MT0nMScgeDI9JzgnIHkyPSc4Jz48L2xpbmU+PGxpbmUgc3R5bGU9J3N0cm9rZTogcmdiKDAsIDAsIDApOycgeDE9JzgnIHkxPScxJyB4Mj0nMScgeTI9JzgnPjwvbGluZT48L3N2Zz4=");
 }
 
 .win98 .window .menu-bar {
