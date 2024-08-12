@@ -36,6 +36,7 @@ player-footer {
 }
 
 vgm-player {
+  z-index: 0;
   position: absolute;
   display: flex;
   flex-wrap: wrap;
@@ -98,8 +99,6 @@ window-player {
   position: relative;
   padding: 2px;
 }
-
-
 
 .player-form {
   flex-basis: 0;
@@ -190,22 +189,6 @@ window-player {
   margin: 0;
 }
 
-
-
-
-/* vgm-player {
-    display: block;
-    animation: mymove 0.5s;
-    animation-timing-function: ease-out;
-    margin-bottom: 20px;
-}
-    
-  @keyframes mymove {
-    from {height: 0px; opacity: 0}
-    to {height: 40px; opacity: 1}
-  } */
-
-
 .player-volume {
   height: 26px;
 }
@@ -236,7 +219,7 @@ window-player {
   padding: 0;
   padding-left: 15px;
   margin: 0;
-  width: 90%; 
+  width: 90%;
   height: 36px;
   top: 0;
   left: 0;
@@ -244,4 +227,8 @@ window-player {
   bottom: 0;
   z-index: 1;
   position: absolute;
+}
+
+.about-page {
+  z-index: 2;
 }

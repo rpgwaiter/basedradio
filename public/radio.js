@@ -60,7 +60,10 @@ function PlayerInfo ({ currentSong, setCurrentSong, currentStatus, setCurrentSta
       }),
     fetch(icecastInfoUrl) // update listeners
       .then(r => r.json())
-      .then(r => { listenersEl.innerText = r.icestats.source.listeners })
+      .then(r => {
+        const s = r.icestats.source
+        listenersEl.innerText = s.listeners || s.reduce((a,c) => a += c.listeners, 0) || 0
+      })
   ])
 
   // On component load, get current song info
@@ -107,6 +110,7 @@ function PlayerVolume () {
   `
 }
 
+// This doesn't work on safari for some reason (and by extension all of iOS)
 function Visualizer () {
   const canvasEl = useRef()
 
@@ -125,7 +129,7 @@ function Visualizer () {
     const numPoints = analyser.frequencyBinCount
     const audioDataArray = new Uint8Array(numPoints)
 
-    function render () {
+    function generate () {
       canvasContext.clearRect(0, 0, canvasContext.canvas.width, canvasContext.canvas.height)
 
       // get the current audio data
@@ -148,14 +152,15 @@ function Visualizer () {
           canvasContext.fillRect(x, barHeight, size, height)
         }
       }
-      requestAnimationFrame(render)
+      requestAnimationFrame(generate)
     }
-    requestAnimationFrame(render)
+    requestAnimationFrame(generate)
   }, [])
 
   return html`<canvas id='canvas' class='player-visual' ref=${canvasEl} />`
 }
 
+// Main block of stuff
 function PlayerContent () {
   const playEl = useRef()
   const [songState, setSongState] = useState('Loading..')
@@ -202,9 +207,65 @@ setCurrentStatus
   `
 }
 
-Array.from(document.getElementsByClassName('window')).map(makeDraggable)
+function AboutPage () {
 
+  return html`
+  <div class="win98">
+    <div class="window">
+      <div class="header">About</div>
+      <div id="about-radio" class="inner" >
+        <p>BasedRadio is an internet radio station playing classic and obscure music from the pre-32bit era. Heavily inspired by <a href="https://plaza.one">plaza.one</a>, all of the code for this site is custom.
+        If you're interested: <a href="https://github.com/rpgwaiter/basedradio">source code</a>.
+        </p>
+        <br></br>
+        <p><strong>Technology used:</strong></p>
+        <p><ul>
+          <li>mpd</li>
+          <li>Icecast</li>
+          <li>Preact</li>
+          <li>htm</li>
+        </ul></p>
+        <br></br>
+        <p>-- Imagine your favorite wall of legal disclaimers, license agreements and copyright notices here. --</p>
+        <br></br>
+        <p>I don't have the rights to any of this music, didn't even ask. If you're a rightsholder and really care, email me: <a href=”mailto:dmca@based.radio”>dmca@based.radio</a>. I'll probably get around to reading it eventually.</p>
+      </div>
+      <player-footer>
+      </player-footer>
+    </div>
+    
+  </div>
+    `
+}
+
+function MenuBar () {
+  const [aboutExists, setAboutExists] = useState(false)
+
+  const showAbout = () => {
+    console.log('shown about')
+    if (aboutExists) {
+      setAboutExists(false)
+      render(null, document.getElementById('about-page'))
+    } else {
+      setAboutExists(true)
+      render(html`<${AboutPage} />`, document.getElementById('about-page'))
+    }
+    makeAllDraggable()
+  }
+  return html`
+    <div class="action"><a id="home-btn" role="button" tabindex="0" href="/"><u>H</u>ome</a></div>
+    <div class="action"><a id="about-show" onClick=${showAbout} role="button" tabindex="1"><u>A</u>bout</a></div>
+    <div class="action" style="float: right;"><a role="button" id="updates-show" tabindex="3"><u>U</u>pdates</a></div>
+  `
+}
+
+const makeAllDraggable = () => Array.from(document.getElementsByClassName('window')).map(makeDraggable)
+
+
+render(html`<${MenuBar} />`, document.getElementById('player-menu'))
 render(html`<${PlayerContent} />`, document.getElementById('player-container'))
+
+makeAllDraggable()
 
 // Polling utility
 // found here: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
