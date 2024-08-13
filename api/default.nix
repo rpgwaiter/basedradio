@@ -9,7 +9,6 @@ with pkgs.python312Packages;
 
     propagatedBuildInputs = [
       setuptools
-      requests
       pkgs.python312Packages.mpd2
       pkgs.python312Packages.flask
     ];

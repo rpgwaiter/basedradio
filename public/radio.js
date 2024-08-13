@@ -192,7 +192,7 @@ setCurrentStatus
           
           <div class='player-time-container text-field'>
             ${Visualizer({ currentStatus })}
-            <div id='player-time' class='player-time'>~~~ ${formatTime(currentStatus.elapsed)}/${formatTime(currentStatus.duration)} ~~~</div>
+            <div id='player-time' class='player-time'>~~~ ${formatTime(currentStatus.elapsed)} / ${formatTime(currentStatus.duration)} ~~~</div>
           </div>
           ${PlayerVolume()}
           <div class='content-buttons'>
