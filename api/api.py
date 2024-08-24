@@ -47,6 +47,13 @@ class MPDWrapper:
     def wait_for_change(self):
         return self.client.idle("player")
 
+    def reconnect(self):
+        try:
+            self.connect()
+            time.sleep(0.250)
+        except:
+          pass
+
 
 def encodeCoverArt(path):
     try:
@@ -69,8 +76,7 @@ def get_song():
     try:
         song = mpd.get_current_song()
     except:
-        mpd.connect()
-        time.sleep(0.250)
+        mpd.reconnect()
         song = mpd.get_current_song() or None
 
     try:
@@ -85,8 +91,7 @@ def get_status():
     try:
         status = mpd.get_status()
     except:
-        mpd.connect()
-        time.sleep(0.250)
+        mpd.reconnect()
         status = mpd.get_status() or None
 
     try:
