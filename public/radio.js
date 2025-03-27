@@ -24,7 +24,10 @@ const img = {
 
 const audio = new Audio()
 audio.crossOrigin = 'anonymous'
-const canPlayOgg = audio.canPlayType('audio/ogg; codecs="vorbis"')
+
+// ogg stream neads fixing, using only mp3 for now
+// const canPlayOgg = audio.canPlayType('audio/ogg; codecs="vorbis"')
+const canPlayOgg = ''
 audio.type = canPlayOgg === '' ? 'audio/mpeg' : 'audio/ogg; codecs="opus"'
 audio.src = canPlayOgg === '' ? streamUrlMp3 : streamUrl
 audio.preload = 'auto'
