@@ -12,6 +12,7 @@ from flask import Flask, jsonify
 mpd_host = os.environ.get("MPD_HOST", "::1")
 mpd_port = os.environ.get("MPD_PORT", 6600)
 api_host = os.environ.get("RADIO_API_HOST", "localhost")
+api_host = os.environ.get("RADIO_API_PORT", 9969)
 
 musicLibrary = os.environ.get("RADIO_MUSIC_DIR", "/Music")
 

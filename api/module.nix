@@ -17,16 +17,23 @@ in {
       description = "Set version of radio-api package to use.";
     };
 
-    apiHost = mkOption {
-      type = types.str;
-      default = "localhost";
-      description = "IP to bind the api to";
-    };
-
     musicDir = mkOption {
       type = types.str;
       default = "/Music";
       description = "Local path to the radio files";
+    };
+
+    api = {
+      hostName = mkOption {
+        type = types.str;
+        default = "localhost";
+        description = "Hostname of the radio api";
+      };
+      port = mkOption {
+        type = types.port;
+        default = 9969;
+        description = "Port of the radio api";
+      };
     };
 
     mpd = {
@@ -59,7 +66,8 @@ in {
         MPD_HOST = cfg.mpd.hostName;
         MPD_PORT = toString cfg.mpd.port;
         RADIO_MUSIC_DIR = cfg.musicDir;
-        RADIO_API_HOST = cfg.apiHost;
+        RADIO_API_HOST = cfg.api.hostName;
+        RADIO_API_PORT = cfg.api.port;
         PYTHONUNBUFFERED = "1";
       };
 
