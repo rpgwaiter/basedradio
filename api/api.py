@@ -12,7 +12,7 @@ from flask import Flask, jsonify
 mpd_host = os.environ.get("MPD_HOST", "::1")
 mpd_port = os.environ.get("MPD_PORT", 6600)
 api_host = os.environ.get("RADIO_API_HOST", "localhost")
-api_host = os.environ.get("RADIO_API_PORT", 9969)
+api_port = os.environ.get("RADIO_API_PORT", 9969)
 
 musicLibrary = os.environ.get("RADIO_MUSIC_DIR", "/Music")
 
@@ -123,7 +123,7 @@ def main():
     global mpd
     mpd = MPDWrapper()
     print(f"Starting flask on {api_host}")
-    api.run(host=api_host, port=80)  # todo: config port i guess
+    api.run(host=api_host, port=api_port)  # todo: config port i guess
 
 
 if __name__ == "__main__":

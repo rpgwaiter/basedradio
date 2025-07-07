@@ -67,7 +67,7 @@ in {
         MPD_PORT = toString cfg.mpd.port;
         RADIO_MUSIC_DIR = cfg.musicDir;
         RADIO_API_HOST = cfg.api.hostName;
-        RADIO_API_PORT = cfg.api.port;
+        RADIO_API_PORT = toString cfg.api.port;
         PYTHONUNBUFFERED = "1";
       };
 
