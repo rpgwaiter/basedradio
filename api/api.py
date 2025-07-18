@@ -55,7 +55,6 @@ class MPDWrapper:
         except:
           pass
 
-
 def encodeCoverArt(path):
     try:
         regex = re.compile(r"(cover)\.(gif|jpeg|jpg|png|webp)$", re.I | re.X)
@@ -64,11 +63,11 @@ def encodeCoverArt(path):
             if regex.match(e) is not None:
                 cover_art = f"{fullpath}/{e}"
         # fallback to system art
-        art = cover_art or f"{os.path.dirname(fullpath)}/cover.png"
-        with open(art, "rb") as image_file:
-            encoded_string = base64.b64encode(image_file.read())
-        ext = pathlib.Path(art).suffix
-        return f"data:image/{ext};base64, {encoded_string.decode("utf-8")}"
+        return cover_art or f"{os.path.dirname(fullpath)}/cover.png"
+        # with open(art, "rb") as image_file:
+        #     encoded_string = base64.b64encode(image_file.read())
+        # ext = pathlib.Path(art).suffix
+        # return f"data:image/{ext};base64, {encoded_string.decode("utf-8")}"
     except:
         return ""
 
@@ -106,6 +105,25 @@ def get_status():
 @api.route("/", methods=["GET"])
 def now_playing():
     return jsonify({"song": get_song(), "status": get_status()})
+
+@api.route("/more-info", methods=["GET"])
+def more_info():
+    song = get_song()
+    path = os.path.dirname(song["file"])
+    fullpath = f"{musicLibrary}/{path}/info.json"
+    if pathlib.Path(fullpath).is_file():
+        with open(fullpath) as json_data:
+            d = json.loads(json_data)
+            json_data.close()
+            return d
+
+    return jsonify({
+        "game": {
+            "en": song["game"]
+        }, 
+        "links": {},
+        "notes": [ "We don't have any extra info for this game yet. If you'd like some added to the site, please email me: info@based.radio" ]
+    })
 
 
 @api.route("/status", methods=["GET"])
