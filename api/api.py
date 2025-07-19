@@ -19,6 +19,8 @@ musicLibrary = os.environ.get("RADIO_MUSIC_DIR", "/Music")
 api = Flask(__name__)
 mpd = False
 
+files_url = "https://files.based.radio"
+
 
 class MPDWrapper:
     def __init__(self):
@@ -61,9 +63,9 @@ def encodeCoverArt(path):
         fullpath = f"{musicLibrary}/{path}"
         for e in os.listdir(fullpath):
             if regex.match(e) is not None:
-                cover_art = f"{fullpath}/{e}"
+                cover_art = f"{files_url}{fullpath}/{e}"
         # fallback to system art
-        return cover_art or f"{os.path.dirname(fullpath)}/cover.png"
+        return cover_art.replace("/Music", "") or f"{files_url}{os.path.dirname(fullpath)}/cover.png".replace("/Music", "")
         # with open(art, "rb") as image_file:
         #     encoded_string = base64.b64encode(image_file.read())
         # ext = pathlib.Path(art).suffix
