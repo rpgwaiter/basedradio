@@ -2,8 +2,11 @@
 
 ### Infinite VGM Playlist
 
+> [!IMPORTANT]  
+> This code is mostly abandoned in favor of the [rust wasm version](https://github.com/rpgwaiter/basedradio-rs)
 
-This is a total rewrite of the site and infrastructure, very much a work-in-progress.
+
+HTML+JS version of basedradio hosted at https://old.based.radio.
 
 ### TODO:
 

@@ -3,7 +3,7 @@ main = "src/index.ts"
 compatibility_date = "2022-05-03"
 workers_dev = true
 
-routes = [{ pattern = "based.radio", custom_domain = true }]
+routes = [{ pattern = "old.based.radio", custom_domain = true }]
 
 [site]
 bucket = "./public"
